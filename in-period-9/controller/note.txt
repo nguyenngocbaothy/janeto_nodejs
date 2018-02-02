@@ -1,0 +1,43 @@
+get user:
+- method GET: http://localhost:8081/users/
+
+======================================================================================
+login to take token:
+- method POST: http://localhost:8081/auth/login
+- body: 
+{
+	"email":"abc@gmail.com",
+	"password":"123"
+}
+
+======================================================================================
+add user: (need token)
+- method POST: http://localhost:8081/users/
+- body: 
+{
+	"name": "cdf",
+	"password": "123",
+	"profession": "sinhvien",
+	"email": "cdf@gmail.com"
+}
+- header: 
+key: x-access-token
+value: token when login
+
+======================================================================================
+delete user: (need token)
+- method DELETE: http://localhost:8081/users/5a72d8ba33fa201b18b2f552(id_user) 
+- header: 
+key: x-access-token
+value: token when login
+
+======================================================================================
+update user: (need token)
+- method PUT: http://localhost:8081/users/5a72c5e74aedfb1090894acf
+- header: 
+key: x-access-token
+value: token when login
+
+======================================================================================
+paginate and search
+- method GET: http://localhost:8081/users?page=3&perPage=1&search=&name=1
